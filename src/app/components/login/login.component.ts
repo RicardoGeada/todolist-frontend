@@ -21,9 +21,9 @@ export class LoginComponent {
 
   async login() {
     try {
-      let response = await this.as.loginWithUsernameAndPassword(this.username, this.password);
+      let response : any = await this.as.loginWithUsernameAndPassword(this.username, this.password);
       console.log(response);
-      // localStorage.setItem('token', json.token);
+      localStorage.setItem('token', response['token']);
       this.router.navigateByUrl('/todos');
     } catch(e) {
       console.error(e);
