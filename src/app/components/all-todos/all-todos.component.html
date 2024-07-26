@@ -1,1 +1,7 @@
-<p>all-todos works!</p>
+@for(todo of todos; track todo) {
+    <div class="todo">
+        <input type="checkbox" [checked]="todo.is_done">
+        <span class="title">{{ todo.title }}</span>
+        <span class="description">{{ todo.description }}</span>
+    </div>
+}

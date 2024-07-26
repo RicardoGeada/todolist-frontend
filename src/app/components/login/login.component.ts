@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class LoginComponent {
   username: string = '';
   password: string = '';
 
-  constructor(private as: AuthService) {
+  constructor(private as: AuthService, private router: Router) {
 
   }
 
@@ -23,7 +24,7 @@ export class LoginComponent {
       let response = await this.as.loginWithUsernameAndPassword(this.username, this.password);
       console.log(response);
       // localStorage.setItem('token', json.token);
-      // TODO: redirect
+      this.router.navigateByUrl('/todos');
     } catch(e) {
       console.error(e);
     }
